@@ -1,0 +1,73 @@
+<!-- page.payment.liquid -->
+
+
+<h1>Payment Page</h1>
+
+<div class="order-summary">
+    <h2>Order Summary</h2>
+    <ul>
+        <li><strong>Name:</strong> {{ request.params.first_name }} {{ request.params.last_name }}</li>
+        <li><strong>Email:</strong> {{ request.params.email }}</li>
+        <li><strong>Phone:</strong> {{ request.params.phone }}</li>
+        <li><strong>Address:</strong> {{ request.params.address1 }} {{ request.params.address2 }}, {{ request.params.city }}, {{ request.params.state }}, {{ request.params.postal_code }}, {{ request.params.country }}</li>
+        <li><strong>Product:</strong> {{ product.title }}</li>
+        <li><strong>Price:</strong> {{ product.price | money_with_currency }}</li>
+    </ul>
+</div>
+
+<form action="/cart/add" method="post">
+        <!-- Hidden order details -->
+        <input type="hidden" name="id" value="{{ request.params.id }}">
+        <input type="hidden" name="properties[First Name]" value="{{ request.params.first_name }}">
+        <input type="hidden" name="properties[Last Name]" value="{{ request.params.last_name }}">
+        <input type="hidden" name="properties[Email]" value="{{ request.params.email }}">
+        <input type="hidden" name="properties[Phone]" value="{{ request.params.phone }}">
+        <input type="hidden" name="properties[Address line 1]" value="{{ request.params.address1 }}">
+        <input type="hidden" name="properties[Address line 2]" value="{{ request.params.address2 }}">
+        <input type="hidden" name="properties[City]" value="{{ request.params.city }}">
+        <input type="hidden" name="properties[State]" value="{{ request.params.state }}">
+        <input type="hidden" name="properties[Postal / Zip Code]" value="{{ request.params.postal_code }}">
+        <input type="hidden" name="properties[Country]" value="{{ request.params.country }}">
+
+        <label for="name">Name on Card</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" name="card-number" maxlength="19" required>
+
+        <label for="expiry">Expiry Date</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+
+        <label for="cvc">CVC</label>
+        <input type="text" id="cvc" name="cvc" maxlength="4" required>
+
+        <button type="submit">Pay Now</button>
+</form>
+
+<style>
+    form {
+        max-width: 400px;
+        margin: 2em auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    label {
+        font-weight: bold;
+    }
+    input {
+        padding: 0.5em;
+        font-size: 1em;
+    }
+    button {
+        padding: 0.75em;
+        font-size: 1em;
+        background: #0070f3;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #005bb5;
+    }
+</style>
