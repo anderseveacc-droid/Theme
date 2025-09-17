@@ -16,16 +16,6 @@
 <form id="add-to-cart-form" action="/cart/add" method="post" style="max-width:400px;margin:2em auto;display:flex;flex-direction:column;gap:1em;">
     <!-- Hidden order details -->
   <input type="hidden" name="id" value="8621219676315">
-    <input type="hidden" name="properties[First Name]" value="{{ request.params.first_name }}">
-    <input type="hidden" name="properties[Last Name]" value="{{ request.params.last_name }}">
-    <input type="hidden" name="properties[Email]" value="{{ request.params.email }}">
-    <input type="hidden" name="properties[Phone]" value="{{ request.params.phone }}">
-    <input type="hidden" name="properties[Address line 1]" value="{{ request.params.address1 }}">
-    <input type="hidden" name="properties[Address line 2]" value="{{ request.params.address2 }}">
-    <input type="hidden" name="properties[City]" value="{{ request.params.city }}">
-    <input type="hidden" name="properties[State]" value="{{ request.params.state }}">
-    <input type="hidden" name="properties[Postal / Zip Code]" value="{{ request.params.postal_code }}">
-    <input type="hidden" name="properties[Country]" value="{{ request.params.country }}">
 
     <button type="submit" style="padding:0.75em;font-size:1em;background:#0070f3;color:#fff;border:none;cursor:pointer;border-radius:6px;">Add to Cart & Checkout</button>
 </form>
