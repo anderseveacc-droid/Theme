@@ -25,9 +25,9 @@
       red: '47206741704859'
     };
     var variantPrices = {
-      orange: {{ all_products['private-kitty-orange'].variants.first.price | divided_by: 100.0 | default: 24.99 }},
-      purple: {{ all_products['private-kitty-purple'].variants.first.price | divided_by: 100.0 | default: 24.99 }},
-      red: {{ all_products['private-kitty-red'].variants.first.price | divided_by: 100.0 | default: 24.99 }}
+      orange: 5.99,
+      purple: 5.99,
+      red: 5.99
     };
     function formatMoney(amount) {
       return '$' + amount.toFixed(2);
@@ -74,11 +74,17 @@
     <h2>Order Summary</h2>
     <div class="order-summary-item">
       <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}">
-      <div class="order-summary-details">
-        <strong>{{ product.title }}</strong> | <span id="summary-price">$0.00</span> each
+      <div class="order-summary-details" style="margin-bottom: 18px;">
+        <strong>{{ product.title }}</strong>
+        <span style="display:inline-block; width: 24px;"></span>
+        <span id="summary-price" style="font-size: 1.1em; color: #2e72b4; font-weight: bold;">$5.99</span> each
       </div>
-      <div>Qty: <span id="summary-qty">1</span></div>
-      <div>Total: <span id="summary-total">$0.00</span></div>
+      <div style="margin-bottom: 12px;">
+        Qty: <span id="summary-qty">1</span>
+      </div>
+      <div>
+        Total: <span id="summary-total">$5.99</span>
+      </div>
     </div>
   </div>
 </div>
