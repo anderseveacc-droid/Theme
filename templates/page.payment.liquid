@@ -13,33 +13,10 @@
     </ul>
 </div>
 
-<form id="add-to-cart-form" action="/cart/add" method="post" style="max-width:400px;margin:2em auto;display:flex;flex-direction:column;gap:1em;">
+<form action="/cart/add" method="post" style="max-width:400px;margin:2em auto;display:flex;flex-direction:column;gap:1em;">
     <!-- Hidden order details -->
   <input type="hidden" name="id" value="8621219676315">
 
-    <button type="submit" style="padding:0.75em;font-size:1em;background:#0070f3;color:#fff;border:none;cursor:pointer;border-radius:6px;">Add to Cart & Checkout</button>
+  <button type="submit" style="padding:0.75em;font-size:1em;background:#0070f3;color:#fff;border:none;cursor:pointer;border-radius:6px;">Add to Cart & Checkout</button>
 </form>
 
-<script>
-// Use AJAX to add to cart and redirect to checkout only after success
-document.getElementById('add-to-cart-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var form = this;
-  var data = new FormData(form);
-  fetch('/cart/add.js', {
-    method: 'POST',
-    body: data,
-    credentials: 'same-origin'
-  })
-  .then(function(response) {
-    if (response.ok) {
-      window.location.href = '/checkout';
-    } else {
-      alert('There was a problem adding the product to your cart.');
-    }
-  })
-  .catch(function() {
-    alert('There was a problem adding the product to your cart.');
-  });
-});
-</script>
