@@ -10,19 +10,46 @@
           <option value="red">Red</option>
         </select>
       </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+      </div>
       <button type="submit" class="btn">Buy Now</button>
     </form>
 
     <script>
+    // Variant IDs and prices for each color (replace with actual prices if needed)
+    var variantIds = {
+      orange: '47206741639323',
+      purple: '47206741672091',
+      red: '47206741704859'
+    };
+    var variantPrices = {
+      orange: {{ all_products['private-kitty-orange'].variants.first.price | divided_by: 100.0 | default: 24.99 }},
+      purple: {{ all_products['private-kitty-purple'].variants.first.price | divided_by: 100.0 | default: 24.99 }},
+      red: {{ all_products['private-kitty-red'].variants.first.price | divided_by: 100.0 | default: 24.99 }}
+    };
+    function formatMoney(amount) {
+      return '$' + amount.toFixed(2);
+    }
+    function updateSummary() {
+      var color = document.getElementById('color').value;
+      var qty = parseInt(document.getElementById('quantity').value, 10) || 1;
+      var price = variantPrices[color] || 0;
+      document.getElementById('summary-qty').textContent = qty;
+      document.getElementById('summary-price').textContent = formatMoney(price);
+      document.getElementById('summary-total').textContent = formatMoney(price * qty);
+    }
+    document.getElementById('color').addEventListener('change', updateSummary);
+    document.getElementById('quantity').addEventListener('input', updateSummary);
     document.getElementById('order-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var color = document.getElementById('color').value;
-      var variantId = '';
-      if (color === 'orange') variantId = '47206741639323';
-      if (color === 'purple') variantId = '47206741672091';
-      if (color === 'red') variantId = '47206741704859';
+      var qty = parseInt(document.getElementById('quantity').value, 10) || 1;
+      var variantId = variantIds[color];
       var formData = new FormData();
       formData.append('id', variantId);
+      formData.append('quantity', qty);
       fetch('/cart/add.js', {
         method: 'POST',
         body: formData,
@@ -39,6 +66,7 @@
         alert('There was a problem adding the product to your cart.');
       });
     });
+    updateSummary();
     </script>
   </div>
 
@@ -47,10 +75,10 @@
     <div class="order-summary-item">
       <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}">
       <div class="order-summary-details">
-        <strong>{{ product.title }}</strong> | {{ product.price | money_with_currency }} each
+        <strong>{{ product.title }}</strong> | <span id="summary-price">$0.00</span> each
       </div>
-      <div>Qty: 1</div>
-      <div>Total: {{ product.price | money_with_currency }}</div>
+      <div>Qty: <span id="summary-qty">1</span></div>
+      <div>Total: <span id="summary-total">$0.00</span></div>
     </div>
   </div>
 </div>
