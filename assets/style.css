@@ -15,11 +15,13 @@ body {
 
 .hero {
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 30px;
-    align-items: center;
+    grid-template-columns: 1fr 520px;
+    gap: 36px;
+    align-items: start;
     margin-top: 40px;
 }
+.hero-left { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hero-right { display: block; }
 .hero .hero-text h1 { font-size: 32px; color: #2e72b4; margin: 0 0 12px 0; }
 .hero .hero-text p { color: #666; font-size: 16px; line-height: 1.5; }
 .hero .hero-image img { width: 100%; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
