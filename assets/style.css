@@ -14,16 +14,16 @@ body {
 }
 
 .hero {
-    display: grid;
-    grid-template-columns: 1fr 520px;
-    gap: 36px;
-    align-items: start;
-    margin-top: 40px;
-    /* move the whole hero down 100px and left 30px */
-    transform: translate(-30px, 100px);
+    /* absolute layout so the hero doesn't push other elements */
+    position: absolute;
+    top: 100px; /* moved down 100px */
+    left: -30px; /* moved left 30px */
+    width: calc(100% + 60px); /* compensate for negative left */
+    display: block; /* children will be positioned inside */
+    z-index: 50;
 }
-.hero-left { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.hero-right { display: block; }
+.hero-left { position: absolute; left: 0; top: 0; width: calc(50% - 260px); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hero-right { position: absolute; right: 0; top: 0; width: 520px; }
 .hero .hero-text h1 { font-size: 32px; color: #2e72b4; margin: 0 0 12px 0; }
 .hero .hero-text p { color: #666; font-size: 16px; line-height: 1.5; }
 .hero .hero-image img { width: 100%; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
