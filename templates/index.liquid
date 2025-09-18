@@ -8,10 +8,17 @@
     </div>
 
     <nav class="main-nav">
-      <a href="/">HOME</a>
-      <a href="/pages/about">ABOUT</a>
-      <a href="/pages/order">ORDER</a>
-      <a href="/pages/contact">CONTACT</a>
+      {% assign menu = linklists.main-menu %}
+      {% if menu and menu.links.size > 0 %}
+        {% for link in menu.links %}
+          <a href="{{ link.url }}">{{ link.title | upcase }}</a>
+        {% endfor %}
+      {% else %}
+        <a href="/">HOME</a>
+        <a href="/pages/about">ABOUT</a>
+        <a href="/pages/order">ORDER</a>
+        <a href="/pages/contact">CONTACT</a>
+      {% endif %}
     </nav>
   </div>
 </header>
