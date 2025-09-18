@@ -1,27 +1,6 @@
 <div class="top-bar"></div>
 
-<header class="site-header">
-  <div class="site-inner">
-    <div class="brand">
-      <img src="https://cdn.shopify.com/s/files/1/0716/7315/1643/files/Kitty_Brand.png?v=1755550339" alt="Private Kitty cat" class="brand-img">
-      <img src="https://cdn.shopify.com/s/files/1/0716/7315/1643/files/PKname.png?v=1755582072" alt="Private Kitty wordmark" class="brand-wordmark">
-    </div>
-
-    <nav class="main-nav">
-      {% assign menu = linklists.main-menu %}
-      {% if menu and menu.links.size > 0 %}
-        {% for link in menu.links %}
-          <a href="{{ link.url }}">{{ link.title | upcase }}</a>
-        {% endfor %}
-      {% else %}
-        <a href="/">HOME</a>
-        <a href="/pages/about">ABOUT</a>
-        <a href="/pages/order">ORDER</a>
-        <a href="/pages/contact">CONTACT</a>
-      {% endif %}
-    </nav>
-  </div>
-</header>
+ 
 
 <main class="hero">
   <div class="hero-inner">
