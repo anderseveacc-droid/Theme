@@ -165,6 +165,17 @@ main {
     font-weight: bold;
 }
 
+/* Scoped override: center the sub-headline on the homepage and ensure orange color */
+.container .sub-headline {
+    position: static !important;
+    display: block;
+    text-align: center;
+    color: #f39c12 !important;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0 0 12px 0;
+}
+
 .h1 {
     max-width: 450px;
     text-align: center;
