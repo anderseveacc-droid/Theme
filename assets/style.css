@@ -19,6 +19,8 @@ body {
     gap: 36px;
     align-items: start;
     margin-top: 40px;
+    /* move the whole hero down 100px and left 30px */
+    transform: translate(-30px, 100px);
 }
 .hero-left { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .hero-right { display: block; }
