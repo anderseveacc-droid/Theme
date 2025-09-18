@@ -1,22 +1,6 @@
 
-<h1>Review & Complete Your Order</h1>
-
-<div class="order-summary">
-    <h2>Order Summary</h2>
-    <ul>
-        <li><strong>Name:</strong> {{ request.params.first_name }} {{ request.params.last_name }}</li>
-        <li><strong>Email:</strong> {{ request.params.email }}</li>
-        <li><strong>Phone:</strong> {{ request.params.phone }}</li>
-        <li><strong>Address:</strong> {{ request.params.address1 }} {{ request.params.address2 }}, {{ request.params.city }}, {{ request.params.state }}, {{ request.params.postal_code }}, {{ request.params.country }}</li>
-        <li><strong>Product:</strong> {{ product.title }}</li>
-        <li><strong>Price:</strong> {{ product.price | money_with_currency }}</li>
-    </ul>
+<div class="container">
+  <h2>Payment (clean)</h2>
+  <p>Placeholder page for clean-start branch.</p>
 </div>
-
-<form action="/cart/add" method="post" class="form-vertical">
-    <!-- Hidden order details -->
-    <input type="hidden" name="id" value="47206741639323">
-
-    <button type="submit" class="btn-primary">Add to Cart & Checkout</button>
-</form>
 
