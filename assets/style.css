@@ -1,0 +1,36 @@
+/* Styles for clean-start homepage mock */
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; color: #111; }
+
+/* top and bottom blue bars */
+.top-bar, .bottom-bar { height: 64px; background: #2f7bff; }
+
+.site-header{ position: relative; max-width: 1100px; margin: 0 auto; padding: 28px 20px; display:flex; align-items:center; justify-content:space-between; }
+.site-inner{ width:100%; display:flex; align-items:center; justify-content:space-between; }
+.brand{ display:flex; align-items:center; gap:18px; }
+.brand-img{ height:110px; }
+.brand-wordmark{ height:74px; }
+
+.main-nav{ display:flex; gap:56px; align-items:center; font-weight:700; font-size:20px; }
+.main-nav a{ color:#000; text-decoration:none; }
+
+/* hero layout */
+.hero{ background: #fff; }
+.hero-inner{ max-width: 1100px; margin: 40px auto; display:grid; grid-template-columns: 1fr 520px; gap:40px; align-items:start; padding: 20px; }
+.left-column{ padding-left: 20px; }
+.sub-headline{ color: #f39c12; font-weight:800; font-size:22px; letter-spacing:1px; margin: 12px 0; }
+.hero-copy{ font-size:20px; max-width:520px; line-height:1.2; text-align:center; margin-top:26px; font-weight:700; }
+
+.image-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:22px; }
+.image-grid img{ width:100%; height: 260px; object-fit:cover; display:block; box-shadow:0 6px 14px rgba(0,0,0,0.08); }
+
+/* center content inside left column vertically to match mock */
+.left-column{ display:flex; flex-direction:column; justify-content:center; height: 520px; }
+
+/* responsive */
+@media (max-width: 980px){
+	.hero-inner{ grid-template-columns: 1fr; }
+	.image-grid img{ height:200px; }
+	.brand-img{ height:86px; }
+	.brand-wordmark{ height:56px; }
+}
+
